@@ -1,0 +1,104 @@
+Archetiture:
+      form             request
+    client ----------------------------->    django server 
+    |                                                |
+    |                                                |
+    |                                                |
+    |               404                                 |
+    |                        response       false    |
+    |   - - - -  ---------------------------------- - - urls.py project it check there is any urls
+    |                                                |
+    |                                                | true
+    |                                                |
+    |                                                | httpresponse
+    |                                                 
+    ------------- --------------------------- function in urls.py (view.py)
+                                                   render
+                                                   httpresponse
+
+  create form:
+  CRUD 
+  c- create or insert the data into database
+  r-read or retrieve the data from database
+  u- update or edit the data from database
+  d-delete record from database      
+
+  request object
+  ==============
+   all data of the request coming from client is handled by request object
+
+   Types of request object
+   ========================
+
+   GET and POST
+
+   If the request is get then request method value is ''GET                 
+
+
+   uname = efe
+   uemail=ffff@gmail.com
+   phone=897674533
+   msg=fddffd
+
+
+   Mysqlconnection
+
+   Model = table
+    Model is class defined in the models.py  
+
+    class Msg(models.Model)          
+
+    SQL create:
+    create table table_name( column1 datatype primary key,column2 datatype);
+
+    datatype                  function in model module
+    varchar(n)               models.Charfield(Max_length=n)
+    int                      models.IntergerField()
+    float                    models.FloatField()
+    email                    models.EmailFeild()
+    image                    models.Imagefield()
+    BigInteger               models.BigIntField()   
+
+
+    ex:
+      class Pet(models.Model):
+       Name =models.CharField(max_length=50)
+       email=models.EmailField(max_length=50)
+       mobile=models.BigIntegerField()
+       Msg=models.CharField(max_length=200)
+
+
+ CRUD-
+ Insert the record into database
+ ===============================
+
+ ORM =objects Relational Mapping    
+
+ syntax for insert:
+     Modelname.objects.create(colname=value,colname=value)  
+
+
+     1.view all data
+     2.edit a data
+     3.delete adata
+
+     views record:
+      db table ----->views.py function ------>html
+
+      sql queries:
+      select * from table_name;
+
+      ORM
+      ===
+
+      Model_name.objects.all()
+
+
+      <QuerySet [<PetStore: PetStore object (1)>]>
+
+
+delete SQL Query
+ Delete from table_name where id=value      
+
+ ORM 
+ modelname.objects.filter(id=rid)

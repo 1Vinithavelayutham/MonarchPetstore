@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Application</title>
+</head>
+<body>
+      <h2 align="center"> Application/update</h2> 
+      <form method="post" action="edit/{{m.id}}">
+       {% csrf_token %}
+       <table border="1" align="center">
+              <tr>
+                     <td>Enter Ur Name :</td>
+                     <td><input type="text" name="upname" placeholder="Enter ur name" value="{{m.Name}}" required></td>
+              </tr>
+              <tr>
+                     <td>Email ID :</td>
+                     <td><input type="email" name="upemail" placeholder="Enter ur email id" value="{{m.email}}" required></td>
+              </tr>
+              <tr>
+                     <td>Phone Number :</td>
+                     <td><input type="number" name="uphone" placeholder="Enter ur phone number" value="{{m.mobile}}" required></td>
+              </tr>
+              <tr>
+                     <td>Description :</td>
+                     <td><textarea name="umsg" value="{{m.Msg}}" cols="30" rows="10"></textarea></td>
+              </tr>
+              <tr colspan="2" align="center">
+                     <td><input type="submit" value="submit"></td>
+              </tr>
+
+       </table>
+      </form>
+</body>
+</html>
